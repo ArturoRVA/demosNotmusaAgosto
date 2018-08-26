@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+  		<meta name="description" content="Formatos publicitarios Récord">
+  		<meta name="keywords" content="Editorial, NOTMUSA, Estandar, Rich Media, Rising Star, Mobile, Patrocinio, Home, Ros, Nota, Box Banner, Half Banner, Leader, Longbar, Botón editorial, Skyscraper, Box Expandible, Box a Layer, Zócalo Expandible, Zócalo, Layer, Layer XL, Takeover, Billboard, Filmstrip, Push Down, High Banner, Banner Tablet, Box Banner Mobile, Adhesion, Interstitial">  		
+  		<meta name="author" content="Arturo RV">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Demo INTERSTITIAL MOBILE HOME</title>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			body{
+				background-color:rgba(255,255,255,1.00);
+			}
+
+			.vertical{
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				height: 723px;
+			}
+
+			.phone{
+				width: 374px;
+				height: 723px;
+				background-image:url(imagenes/basecelular.png);
+				position:relative;
+				top: 50%;
+				left: 50%;
+				margin-left: -187px;
+				margin-top: -361px;
+			}			
+
+			.baseHeaderVertical{
+				width: 320px;
+				height: 80px;				
+				position: relative;
+				top: 103px;
+				left: 28px;				
+				z-index: 4;
+			}
+
+			.baseHeaderVertical header{
+				width: 320px;
+				height: 80px;
+				background-image:url(imagenes/headerRecord320.jpg);
+				background-repeat: no-repeat;
+				margin: auto;
+    			border-radius: 5px 5px 0px 0px;
+			}
+
+			.containerPhoneVertical{
+				width:320px;
+				height:522px;
+				background-color: red;
+				margin:0 auto;
+				position: absolute;
+				top: 103px;
+				left: 28px;
+    			border-radius: 5px;
+    			overflow: scroll;
+			}
+
+			.containerVertical{
+				width:320px;
+				height:auto;
+				background-color: white;
+				margin:0 auto;
+			}
+
+			.imagenbackVertical{
+				width:320px;
+				height:6229px;
+				background-image:url(imagenes/resolucion320_home.jpg);
+				z-index:1;
+				opacity: .3;					
+			}
+			
+			#containerInterstitialV{
+				background-color:transparent;
+				width: 320px;
+				height: 480px;
+				z-index:30;
+				position:absolute;
+				top: 124px;
+				left: 28px;
+				border-radius:0px 0px 5px 5px;
+			}
+
+			#InterstitialV {				
+				width: 320px;
+				height: 480px;
+			}
+
+			.cerrarBTN{
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				position: absolute;
+				top:0px;
+				right:0px;
+				z-index: 4;
+				cursor: pointer;
+			}**/
+		</style>	
+    
+    	<script>		
+			function load_home(){
+				var animaciones = document.querySelectorAll('#InterstitialV');
+				for (var i = 0; i < animaciones.length; i++){
+					animaciones[i].innerHTML='<object type="text/html" data="interstitialV1/index.html" height="100%" width="100%" ></object>'; 
+				}
+			}	
+
+			var tiempo;
+
+			function tiempo() {
+    			tiempo = setInterval(qQuiero, 20000);
+			}
+
+			function qQuiero() {
+    			document.getElementById("containerInterstitialV").style.display="none";
+    			clearInterval(tiempo);
+			}
+
+			function cerrarV() {
+    			document.getElementById("containerInterstitialV").style.display="none";
+			}
+		</script>
+
+	</head>
+
+	<body onload="load_home(); tiempo()">		
+		<div class="vertical">
+			<div class="phone">
+				<div class="baseHeaderVertical">
+					<header></header>
+				</div>
+				<div class="containerPhoneVertical">
+					<div class="containerVertical">
+						<div class="imagenbackVertical"></div>						
+					</div>					
+				</div>
+				<div id="containerInterstitialV">
+					<div id="InterstitialV"></div>
+					<div class="cerrarBTN" onclick="cerrarV()"></div>
+				</div>
+			</div>
+		</div>		
+	</body>
+
+</html>
